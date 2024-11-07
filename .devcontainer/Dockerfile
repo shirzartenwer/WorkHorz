@@ -6,6 +6,8 @@ ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="ubuntu-24.04"
 
 # Set environment variables (optional but good practice)
 ENV DEBIAN_FRONTEND=noninteractive
+# This env is for it to work on mac
+ENV VCPKG_FORCE_SYSTEM_BINARIES=1
 
 # Update the Ubuntu package list and install necessary packages
 RUN apt-get update && apt-get upgrade -y && \
