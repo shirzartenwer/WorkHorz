@@ -49,11 +49,9 @@ RUN apt-get update && apt-get upgrade -y && \
     iproute2 \
     jq \
     libtool \
-    # libicu74 \
     icu-devtools \
     libpng-dev \
-    # libzip \
-    # liblzma \
+    libzip-dev \
     locales \
     login \
     lua5.4\
@@ -78,6 +76,7 @@ RUN apt-get update && apt-get upgrade -y && \
     sudo \
     sysvinit-utils \
     sqlite3 \
+    sqlite3-tools \
     tar \
     tzdata \
     unzip \
@@ -87,76 +86,8 @@ RUN apt-get update && apt-get upgrade -y && \
     wget \
     xxd \
     zip \
-    zlib1g  \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-
-# # # 1. Install GCC 14.x (build from source as it's not available through apt)
-# RUN cd /tmp && \
-#     wget https://ftp.gnu.org/gnu/gcc/gcc-14.1.0/gcc-14.1.0.tar.gz && \
-#     tar -xzf gcc-14.1.0.tar.gz && cd gcc-14.1.0 && \
-#     ./contrib/download_prerequisites && \
-#     mkdir build && cd build && \
-#     ../configure --enable-languages=c,c++ --disable-multilib && \
-#     make -j$(nproc) && \
-#     make install
-
-# # 3. Install CMake >= 3.28
-# RUN cd /tmp && \
-#     wget https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0.tar.gz && \
-#     tar -xzvf cmake-3.28.0.tar.gz && cd cmake-3.28.0 && \
-#     ./bootstrap && \
-#     make -j$(nproc) && \
-#     make install
-
-# # # 4. Install MoLD >= 2.30
-# RUN cd /tmp && \
-#     wget https://github.com/rui314/mold/releases/download/v2.30/mold-2.30.tar.gz && \
-#     tar -xzvf mold-2.30.tar.gz && cd mold-2.30 && \
-#     make -j$(nproc) && \
-#     make install
-
-# # # 5. Install CCache >= 4.9.1
-# RUN cd /tmp && \
-#     wget https://github.com/ccache/ccache/releases/download/v4.9.1/ccache-4.9.1.tar.gz && \
-#     tar -xzvf ccache-4.9.1.tar.gz && cd ccache-4.9.1 && \
-#     ./configure && \
-#     make -j$(nproc) && \
-#     make install
-
-# # # 6. Install Doxygen >= 1.9.8
-# RUN cd /tmp && \
-#     wget https://github.com/doxygen/doxygen/archive/refs/tags/Release_1_9_8.tar.gz && \
-#     tar -xzf Release_1_9_8.tar.gz && cd doxygen-Release_1_9_8 && \
-#     cmake -Bbuild -H. && \
-#     cmake --build build && \
-#     cmake --install build
-
-# # # 7. Install Vcpkg (newest)
-# # RUN git clone https://github.com/microsoft/vcpkg.git /usr/local/vcpkg && \
-# #     /usr/local/vcpkg/bootstrap-vcpkg.sh
-
-# # 8. Install cppCheck >= 2.13
-# RUN cd /tmp && \
-#     wget https://github.com/danmar/cppcheck/archive/refs/tags/2.13.tar.gz && \
-#     tar -xzvf 2.13.tar.gz && cd cppcheck-2.13 && \
-#     cmake -Bbuild -H. && \
-#     cmake --build build && \
-#     cmake --install build
-
-# # # 9. Install SQLite >= 3.44
-# RUN cd /tmp && \
-#     wget https://www.sqlite.org/2023/sqlite-autoconf-3440000.tar.gz && \
-#     tar -xvzf sqlite-autoconf-3440000.tar.gz && \
-#     cd sqlite-autoconf-3440000 && \
-#     ./configure && \
-#     make -j$(nproc) && \
-#     make install
-
-# # # 10. Set GCC 14 as the default GCC compiler
-#  RUN update-alternatives --install /usr/bin/gcc gcc /usr/local/bin/gcc-14.1.0 60 && \
-#      update-alternatives --install /usr/bin/g++ g++ /usr/local/bin/g++-14.1.0 60
 
 # # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

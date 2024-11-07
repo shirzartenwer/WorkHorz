@@ -37,5 +37,16 @@
 
   1. Get all packages for Linux directly from APT with specified version.
   2. Find Mac specific settings for VScode in container and add it
-  3. 
+
 ]
+
+# Nov. 7th 2024
+
+## TODO
+1. A shell script that takes care of:
+  - fetch the vcpkag diretory
+  - go there and run the boot-strap.sh
+  - do a sudo git pull in that directory
+
+2. A github secret to store the dockeruser password. Make sure it doesn't need the password everytime.
+3. Set GCC as default complier - check the article sent by Patrick
