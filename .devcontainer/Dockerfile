@@ -1,6 +1,6 @@
-#FROM mcr.microsoft.com/devcontainers/cpp:1-ubuntu-24.04
+FROM mcr.microsoft.com/devcontainers/cpp:1-ubuntu-24.04
 # Another option would be use the offical image from ubuntu, # Use the official Ubuntu base image
-FROM ubuntu:latest
+# FROM ubuntu:latest
 
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="ubuntu-24.04"
 
@@ -74,7 +74,7 @@ RUN apt-get update && apt-get upgrade -y && \
     strace \
     sudo \
     sysvinit-utils \
-    sqlite \
+    sqlite3 \
     tar \
     tzdata \
     unzip \
@@ -99,7 +99,7 @@ RUN apt-get update && apt-get upgrade -y && \
 #     make -j$(nproc) && \
 #     make install
 
-# # # 3. Install CMake >= 3.28
+# # 3. Install CMake >= 3.28
 # RUN cd /tmp && \
 #     wget https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0.tar.gz && \
 #     tar -xzvf cmake-3.28.0.tar.gz && cd cmake-3.28.0 && \
