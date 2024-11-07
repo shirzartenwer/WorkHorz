@@ -8,6 +8,28 @@
 	// Things in the feature are installed as VScode extentions within the container
 	"features": {
 		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+					"ms-vscode.cpptools",
+					"ms-vscode.cmake-tools",
+					"ms-vscode.vscode-ssh",
+					"twxs.cmake"
+			],
+			"settings": {
+				"C_Cpp.default.compilerPath": "/usr/bin/gcc-14",
+				"C_Cpp.intelliSenseEngine": "default",
+				"terminal.integrated.shell.linux": "/bin/bash",
+				"terminal.integrated.profiles.windows": {
+					"WSL": {
+						"path": "C:\\Windows\\System32\\wsl.exe",
+						"args": []
+					}
+				}
+
+			}
+		}
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.

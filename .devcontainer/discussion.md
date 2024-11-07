@@ -1,0 +1,41 @@
+{
+  "name": "WorkHorz Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "context": ".",
+  "dockerFile": "Dockerfile_whz.txt",
+  "settings": {
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc-14",
+    "C_Cpp.intelliSenseEngine": "Default",
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "terminal.integrated.profiles.windows": {
+      "WSL": {
+        "path": "C:\\Windows\\System32\\wsl.exe",
+        "args": []
+      }
+    },
+    "remote.WSL2.connectionMethod": "wslExeProxy"
+  },
+  "extensions": [
+    "ms-vscode.cpptools",
+    "ms-vscode.cmake-tools",
+    "ms-vscode.vscode-ssh",
+    "twxs.cmake"
+  ],
+  "forwardPorts": [22],
+  "postCreateCommand": "cmake -B build -S . -G Ninja",
+  "remoteUser": "dockeruser",
+  "features": {
+    "ghcr.io/devcontainers/features/ccache:1": {},
+    "ghcr.io/devcontainers/features/gcc:14": {},
+    "ghcr.io/devcontainers/features/mold:2": {},
+    "ghcr.io/devcontainers/features/ninja:1": {},
+    "ghcr.io/devcontainers/features/cmake:3.28": {}
+  }
+}
+
+# TODO:[
+
+  1. Get all packages for Linux directly from APT with specified version.
+  2. Find Mac specific settings for VScode in container and add it
+  3. 
+]

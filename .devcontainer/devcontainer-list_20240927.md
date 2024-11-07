@@ -1,6 +1,8 @@
 Tools needed to dev and build WorkHorz (mandatory)
 
-    Ubuntu OS >= 24.04 (soon 24.10)
+## Oct 16th Version
+
+Ubuntu OS >= 24.04 (soon 24.10)
     GCC >= 14.1 (soon 14.2)
     Standard: C++23 (soon C++26)
     MoLD >= 2.30 (linker)
@@ -18,3 +20,17 @@ Tools needed to dev and build WorkHorz (mandatory)
 Installing newer version of GCC on Ubunutu
 
     Explained here: https://www.dedicatedcore.com/blog/install-gcc-compiler-ubuntu/ 
+
+Autoconf tools:
+      autoconf >= 2.71
+      automake >= 1.16.5
+      autoconf-archive >= 20220903-3
+Autotools
+ICU:
+  libicu74 >= 74.2
+  icu-devtools
+libtool (for libsodium at least)
+PNG: libpng-dev
+libzip
+liblzma
+
