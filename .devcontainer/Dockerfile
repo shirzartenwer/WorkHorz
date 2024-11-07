@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/devcontainers/cpp:1-ubuntu-24.04
 # Another option would be use the offical image from ubuntu, # Use the official Ubuntu base image
-# FROM ubuntu:latest
+#FROM ubuntu:latest
 
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="ubuntu-24.04"
 
@@ -46,6 +46,7 @@ RUN apt-get update && apt-get upgrade -y && \
     htop \
     iproute2 \
     jq \
+    libtool \
     # libicu74 \
     icu-devtools \
     libpng-dev \
