@@ -47,6 +47,9 @@
   - fetch the vcpkag diretory
   - go there and run the boot-strap.sh
   - do a sudo git pull in that directory
+Done :)
 
-2. A github secret to store the dockeruser password. Make sure it doesn't need the password everytime.
+~2. A github secret to store the dockeruser password. Make sure it doesn't need the password everytime.~
+I skipped this because I figured out it's not needed and I didn't encounter permission error anymore.
+
 3. Set GCC as default complier - check the article sent by Patrick
