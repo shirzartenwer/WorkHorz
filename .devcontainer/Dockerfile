@@ -95,8 +95,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # Set timezone (optional)
 RUN ln -fs /usr/share/zoneinfo/Europe/Zurich /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 
-# Create a user with sudo privileges (optional)
-RUN useradd -ms /bin/bash dockeruser && echo "dockeruser:password" | chpasswd && adduser dockeruser sudo
+# Create the dockeruser user and set up the home directory
+RUN useradd -m -s /bin/bash dockeruser && \
+    echo "dockeruser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Set the default user (optional)
 USER dockeruser
